@@ -28,7 +28,7 @@ const App = () => {
         >
           {menu.map(item => (
             <Menu.Item key={item.key}>
-              <NavLink to={item.key} exact activeClassName="active">{item.label}</NavLink>
+              <NavLink to={item.key}>{item.label}</NavLink>
             </Menu.Item>
           ))}
         </Menu>
