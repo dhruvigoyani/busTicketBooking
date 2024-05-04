@@ -18,7 +18,7 @@ const ReservationForm = ({
 }) => (
   <BTBModal {...{ handleCancel, open: toggleModal, title }}>
     <BTBForm {...{ onFinish, onFinishFailed, form }}>
-      {reservationField?.map((field) =>
+      {reservationField?.map((field, index) =>
         ternary(
           equal(field?.name, "seatNumber") && !isEdit,
           null,
@@ -29,6 +29,7 @@ const ReservationForm = ({
               null,
               field?.label
             )}
+            key={index}
           >
             <BTBInput
               {...field}
