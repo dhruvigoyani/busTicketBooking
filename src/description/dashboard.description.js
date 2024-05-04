@@ -1,6 +1,9 @@
-import { Space, } from "antd";
+import { Popconfirm, Space, } from "antd";
+import { DELETE, EDIT } from "../utils/constant";
 
-export const columns = [
+export const confirmationMsg = 'Are you sure to delete this item?'
+
+export const columns = (handleEdit, handleDelete) => [
     {
         title: 'Name',
         dataIndex: 'name',
@@ -24,8 +27,15 @@ export const columns = [
         key: 'action',
         render: (_, record) => (
             <Space size="middle">
-                <a>Edit</a>
-                <a>Delete</a>
+                <a onClick={() => handleEdit(record)}>{EDIT}</a>
+                <Popconfirm
+                    title={confirmationMsg}
+                    onConfirm={() => handleDelete(record.key)}
+                    okText="Yes"
+                    cancelText="No"
+                >
+                    <a>{DELETE}</a>
+                </Popconfirm>
             </Space>
         ),
     },

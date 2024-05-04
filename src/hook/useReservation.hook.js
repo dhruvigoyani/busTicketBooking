@@ -16,7 +16,7 @@ const useReservation = () => {
     const onFinish = (values) => {
         dispatch({
             type: RESERVED_TICKET,
-            payload: values,
+            payload: { ...values, key: new Date()?.toISOString() },
         });
         handleCancel()
         form.resetFields();

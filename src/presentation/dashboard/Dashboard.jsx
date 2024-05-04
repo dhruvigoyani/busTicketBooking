@@ -1,9 +1,9 @@
 import { Table } from "antd";
-import { columns, data } from "../../description/dashboard.description";
+import { columns } from "../../description/dashboard.description";
 import useDashboard from "../../hook/useDashboard.hook";
 
 const Dashboard = () => {
-    const { reserveTicketData } = useDashboard()
-    return <Table columns={columns} dataSource={[...data, ...reserveTicketData]} />
+    const { handleEdit, handleDelete, ticketData } = useDashboard()
+    return <Table columns={columns(handleEdit, handleDelete)} dataSource={ticketData} />
 }
 export default Dashboard;
