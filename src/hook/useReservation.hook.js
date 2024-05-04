@@ -2,11 +2,12 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { RESERVED_TICKET } from "../redux/constant";
 import { Form } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const useReservation = () => {
   const dispatch = useDispatch();
   const [form] = Form.useForm();
-
+  const navigate = useNavigate()
   const [toggleModal, setToggleModal] = useState(false);
   const [ticketNumber, setTicketNumber] = useState(null);
 
@@ -28,6 +29,7 @@ const useReservation = () => {
     });
     handleCancel();
     form.resetFields();
+    navigate('/')
   };
 
   return { toggleModal, handleToggleModal, handleCancel, onFinish, form };
