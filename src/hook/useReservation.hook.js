@@ -22,9 +22,7 @@ const useReservation = () => {
         form.resetFields();
 
     };
-    const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
-    };
-    return { toggleModal, handleToggleModal, handleCancel, onFinish, onFinishFailed, form }
+
+    return { toggleModal, handleToggleModal, handleCancel, onFinish, form }
 }
 export default useReservation

@@ -1,15 +1,23 @@
 import useReservation from "../../hook/useReservation.hook";
 import BTBButton from "../../shared/BTBButton";
 import ReservationForm from "../../shared/ReservationForm";
-import { RESERVE_TICKET_TITLE } from "../../utils/constant";
+import { BOOK_TICKET, RESERVE_TICKET_TITLE } from "../../utils/constant";
 
 const Reservation = () => {
-    const { toggleModal, handleToggleModal, handleCancel, onFinish, onFinishFailed, form } = useReservation()
+    const { toggleModal, handleToggleModal, handleCancel, onFinish, form } = useReservation()
 
 
     return <>
-        <BTBButton onClick={handleToggleModal}>Book a ticket</BTBButton>
-        <ReservationForm {...{ toggleModal, handleCancel, title: RESERVE_TICKET_TITLE, onFinish, onFinishFailed, form }} />
+        <BTBButton onClick={handleToggleModal}>{BOOK_TICKET}</BTBButton>
+        <ReservationForm
+            {...{
+                toggleModal,
+                handleCancel,
+                title: RESERVE_TICKET_TITLE,
+                onFinish,
+                form
+            }}
+        />
     </>
 }
 export default Reservation;

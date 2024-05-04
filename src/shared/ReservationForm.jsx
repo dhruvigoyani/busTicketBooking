@@ -8,7 +8,7 @@ import BTBInput from "./BTBInput"
 import BTBModal from "./BTBModal"
 import BTBSelect from "./BTBSelect"
 
-const ReservationForm = ({ toggleModal, handleCancel, title, onFinish, onFinishFailed, form }) =>
+const ReservationForm = ({ toggleModal, handleCancel, title, onFinish, onFinishFailed, form, isEdit }) =>
     <BTBModal  {...{ handleCancel, open: toggleModal, title }}>
         <BTBForm
             {...{ onFinish, onFinishFailed, form }}
@@ -16,13 +16,13 @@ const ReservationForm = ({ toggleModal, handleCancel, title, onFinish, onFinishF
             {reservationField?.map((field) =>
                 <BTBFormItem {...field}>
                     {ternary(equal(field?.type, 'select'),
-                        <BTBSelect options={[{
-                            value: 'jack',
-                            label: 'Jack',
+                        <BTBSelect disabled={isEdit} options={[{
+                            value: 'l1',
+                            label: 'L1',
                         },
                         {
-                            value: 'lucy',
-                            label: 'Lucy',
+                            value: 'l2',
+                            label: 'L2',
                         },
                         ]} />,
                         <BTBInput {...field} />)}

@@ -44,15 +44,15 @@ export const data = [
     {
         key: '1',
         name: 'John Brown',
-        email: 32,
+        email: 'kjfh@ss.co',
         seatNumber: 'L1',
-        dateOfBooking: '3/3/2022',
+        dateOfBooking: '3-3-2022',
     },
     {
         key: '2',
         name: 'Jim Green',
-        email: 42,
+        email: 'kjfh@ss.co',
         seatNumber: 'L2',
-        dateOfBooking: '2/3/2022',
+        dateOfBooking: '2-3-2022',
     },
 ];
