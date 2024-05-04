@@ -1,53 +1,38 @@
-import React from 'react';
-import { Layout, Menu, theme } from 'antd';
-import { menu } from './description/header.description';
-import AllRoutes from './routes';
-import { NavLink } from 'react-router-dom';
-const { Header, Content } = Layout;
+import React from "react";
+import { Layout,  theme } from "antd";
+import AllRoutes from "./routes";
+import BTBHeader from "./shared/BTBHeader";
+import useApp from "./hook/useApp.hook";
+const {  Content } = Layout;
+
 
 const App = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+
+  const { location, user,handleLogout }= useApp()
   return (
     <Layout>
-      <Header
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={['/']}
-          style={{
-            flex: 1,
-            minWidth: 0,
-          }}
-        >
-          {menu.map(item => (
-            <Menu.Item key={item.key}>
-              <NavLink to={item.key}>{item.label}</NavLink>
-            </Menu.Item>
-          ))}
-        </Menu>
-      </Header>
+      {user && (
+        <BTBHeader {...{handleLogout,location}}/>
+      )}
+
       <Content
         style={{
-          padding: '0 48px',
+          padding: "0 48px",
         }}
       >
         <Layout
           style={{
-            padding: '24px 0',
+            padding: "24px 0",
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
           }}
         >
           <Content
             style={{
-              padding: '0 24px',
+              padding: "0 24px",
               minHeight: 280,
             }}
           >
