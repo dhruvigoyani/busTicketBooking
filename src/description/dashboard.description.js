@@ -7,7 +7,7 @@ export const columns = (handleEdit, handleDelete) => [
     {
         title: 'Name',
         dataIndex: 'name',
-        render: (text) => <a>{text}</a>,
+        render: (_, record) => <a>{record?.firstName} {record?.lastName}</a>,
     },
     {
         title: 'Email',
@@ -43,14 +43,16 @@ export const columns = (handleEdit, handleDelete) => [
 export const data = [
     {
         key: '1',
-        name: 'John Brown',
+        firstName: 'John',
+        lastName: 'Brown',
         email: 'kjfh@ss.co',
         seatNumber: 'L1',
         dateOfBooking: '3-3-2022',
     },
     {
         key: '2',
-        name: 'Jim Green',
+        firstName: 'Jim ',
+        lastName: 'Green',
         email: 'kjfh@ss.co',
         seatNumber: 'L2',
         dateOfBooking: '2-3-2022',

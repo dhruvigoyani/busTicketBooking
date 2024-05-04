@@ -1,13 +1,25 @@
 
 export const reservationField = [
     {
-        label: "Name",
-        name: 'name',
-        placeholder: 'Enter your name',
+        label: "First Name",
+        name: 'firstName',
+        placeholder: 'Enter First name',
         rules: [
             {
                 required: true,
-                message: 'Please input your user name'
+                message: 'Please input your first name'
+            },
+        ],
+        type: 'text'
+    },
+    {
+        label: "Last Name",
+        name: 'lastName',
+        placeholder: 'Enter Last name',
+        rules: [
+            {
+                required: true,
+                message: 'Please input your last name'
             },
         ],
         type: 'text'
