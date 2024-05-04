@@ -1,5 +1,5 @@
 import { Form } from "antd";
 
-const BTBForm = ({ children, ...rest }) => <Form {...rest}>{children}</Form>
+const BTBForm = ({ children, ...rest }) => <Form {...rest}>{children}</Form>;
 
-export default BTBForm
+export default BTBForm;

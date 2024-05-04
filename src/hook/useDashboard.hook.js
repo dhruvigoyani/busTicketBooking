@@ -5,51 +5,55 @@ import { Form } from "antd";
 import { equal } from "../utils/javascript";
 
 const useDashboard = () => {
-    const reserveTicketData = useSelector((state) => state?.form?.reserveTicketData);
-    const [form] = Form.useForm();
+  const reserveTicketData = useSelector(
+    (state) => state?.form?.reserveTicketData
+  );
 
-    const [toggleModal, setToggleModal] = useState(false)
-    const [ticketData, setTicketData] = useState([])
-    const [key, setKey] = useState(null)
-    const handleCancel = () => setToggleModal(false)
+  const [form] = Form.useForm();
 
-    useEffect(() => {
-        setTicketData([...data, ...reserveTicketData])
-    }, [])
+  const [toggleModal, setToggleModal] = useState(false);
+  const [ticketData, setTicketData] = useState([]);
+  const [key, setKey] = useState(null);
 
-    const handleEdit = (record) => {
-        form.setFieldsValue(record);
-        setKey(record?.key)
-        setToggleModal(true)
-    }
+  const handleCancel = () => setToggleModal(false);
 
-    const handleDelete = (key) => {
-        const updatedData = ticketData.filter(item => item.key !== key);
-        setTicketData(updatedData);
-    }
+  useEffect(() => {
+    setTicketData([...data, ...reserveTicketData]);
+  }, []);
 
-    const onFinish = (values) => {
-        const updatedData = ticketData.map(item => {
-            if (equal(item?.key, key)) {
-                return { ...item, ...values };
-            }
-            return item;
-        });
+  const handleEdit = (record) => {
+    form.setFieldsValue(record);
+    setKey(record?.key);
+    setToggleModal(true);
+  };
 
-        setTicketData(updatedData);
-        setKey(null)
-        handleCancel()
-    }
+  const handleDelete = (key) => {
+    const updatedData = ticketData.filter((item) => item.key !== key);
+    setTicketData(updatedData);
+  };
 
-    return {
-        handleEdit,
-        handleDelete,
-        ticketData,
-        toggleModal,
-        handleCancel,
-        onFinish,
-        form
-    }
-}
+  const onFinish = (values) => {
+    const updatedData = ticketData.map((item) => {
+      if (equal(item?.key, key)) {
+        return { ...item, ...values };
+      }
+      return item;
+    });
 
-export default useDashboard
+    setTicketData(updatedData);
+    setKey(null);
+    handleCancel();
+  };
+
+  return {
+    handleEdit,
+    handleDelete,
+    ticketData,
+    toggleModal,
+    handleCancel,
+    onFinish,
+    form,
+  };
+};
+
+export default useDashboard;
