@@ -2,13 +2,14 @@ import React from 'react';
 import { Layout, Menu, theme } from 'antd';
 import { menu } from './description/header.description';
 import AllRoutes from './routes';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 const { Header, Content } = Layout;
 
 const App = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+  const location = useLocation();
   return (
     <Layout>
       <Header
@@ -21,6 +22,7 @@ const App = () => {
           theme="dark"
           mode="horizontal"
           defaultSelectedKeys={['/']}
+          selectedKeys={[location.pathname]}
           style={{
             flex: 1,
             minWidth: 0,
